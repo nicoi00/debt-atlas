@@ -16,11 +16,12 @@ st.set_page_config(layout="wide", page_title="DebtAtlas")
 
 pages = {
     "Dashboard": None,
-    "Sources & Methods": "pages/1_Sources_and_Methods.py",
-    "About": "pages/2_About.py",
+    "Sources & Methods": "page_scripts/1_Sources_and_Methods.py",
+    "About": "page_scripts/2_About.py",
 }
 
-selected_page = st.sidebar.selectbox("Navigate", list(pages.keys()))
+# Shared navigation dropdown (kept) — use a fixed widget key so pages share state
+selected_page = st.sidebar.selectbox("Navigate", list(pages.keys()), key="nav")
 
 # 2. PAGE ROUTING
 if pages[selected_page] is not None:
